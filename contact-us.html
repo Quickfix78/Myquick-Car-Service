@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact Us | Quickfix Mobile Mechanic Service</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+      color: #263238;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background: #172337;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #2a7ae2;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, #172337, #2a7ae2);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .page-header h1 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .page-header p {
+      font-size: 17px;
+      color: #e6eefb;
+    }
+
+    /* Main Layout */
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* Contact Information */
+    .contact-info {
+      background: #172337;
+      color: white;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info h2 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .contact-info > p {
+      color: #d3dce8;
+      margin-bottom: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .info-icon {
+      background: #2a7ae2;
+      min-width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 20px;
+    }
+
+    .info-item h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .info-item p,
+    .info-item a {
+      color: #d3dce8;
+      font-size: 14px;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .info-item a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    .contact-form h2 {
+      font-size: 25px;
+      margin-bottom: 8px;
+      color: #172337;
+    }
+
+    .form-intro {
+      color: #667085;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 7px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fff;
+      color: #263238;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #2a7ae2;
+      box-shadow: 0 0 0 3px rgba(42, 122, 226, 0.12);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 7px;
+      background: #2a7ae2;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #195bb5;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: #667085;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #172337;
+      color: #d3dce8;
+      text-align: center;
+      padding: 22px 15px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header {
+        padding: 45px 15px;
+      }
+
+      .page-header h1 {
+        font-size: 30px;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 25px;
+      }
+
+      nav {
+        gap: 5px;
+      }
+
+      nav a {
+        padding: 9px 11px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      nav a {
+        padding: 8px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="repairs.html">Repairs</a>
+    <a href="why-us.html">Why Us</a>
+       <a href="contact-us.html" class="active"
+       aria-current="page">Contact Us</a>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Contact Us</h1>
+    <p>Have a question? We're here to help with your car service needs.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="contact-layout">
+
+      <!-- Contact Information -->
+      <section class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Whether you need advice, have a question about our services,
+          or want to discuss your vehicle, send us a message.
+        </p>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div>
+            <h3>Our Location</h3>
+            <p>Quickfix Mobile Car Service<br />West Croydon, United Kingdom</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">📞</div>
+          <div>
+            <h3>Phone Number</h3>
+            <p>07404559912</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">✉️</div>
+          <div>
+            <h3>Email Address</h3>
+            <p>
+              <a href="mailto:omerkhan.ayoubi78@gmail.com">
+                omerkhan.ayoubi78@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">🕒</div>
+          <div>
+            <h3>Opening Hours</h3>
+            <p>Sunday – Saturday: 8:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="contact-form">
+        <h2>Send Us a Message</h2>
+        <p class="form-intro">
+          Complete the form below and tell us how we can help.
+        </p>
+
+        <form id="contactForm">
+
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+  <label for="vehicle">Make, Model, Year</label>
+  <input
+    type="text"
+    id="vehicle"
+    name="vehicle"
+    placeholder="e.g. Toyota Corolla 2016"
+    autocomplete="off"
+  />
+</div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Choose a subject</option>
+              <option value="General Enquiry">General Enquiry</option>
+              <option value="Car Repairs">Car Repairs</option>
+              <option value="Service Booking">Service Booking</option>
+              <option value="Pricing">Pricing</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Please explain how we can help..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send Message
+          </button>
+
+          <p class="form-note">
+            * Required fields
+          </p>
+
+          <p id="formStatus" role="status" aria-live="polite"></p>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 My Car Service. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Collect form input values
+      const name = encodeURIComponent(contactForm.name.value.trim());
+      const email = encodeURIComponent(contactForm.email.value.trim());
+      const phone = encodeURIComponent(contactForm.phone.value.trim());
+      const subject = encodeURIComponent(contactForm.subject.value.trim());
+      const message = encodeURIComponent(contactForm.message.value.trim());
+
+      // Your WhatsApp number here (country code, no plus sign)
+      const yourWhatsAppNumber = "447404559912"; // Replace with your actual number!
+
+      // Compose WhatsApp message text
+      const fullMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+      // WhatsApp URL with pre-filled message
+      const whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${fullMessage}`;
+
+      // Open WhatsApp chat in new tab/window
+      window.open(whatsappUrl, "_blank");
+    });
+  </script>
+
+</body>
+</html>

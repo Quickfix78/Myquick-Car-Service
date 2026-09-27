@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Us - My Car Service</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('images/repairs-bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Dark overlay container */
+    .overlay {
+      background: rgba(0, 0, 0, 0.65);
+      max-width: 900px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 40px 35px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      font-weight: 800;
+    }
+    nav a {
+      background-color: #195bb5;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(25, 91, 181, 0.6);
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: bold;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #2a7ae2;
+      box-shadow: 0 8px 30px rgba(42, 122, 226, 0.9);
+    }
+
+    /* Heading */
+    h1 {
+      color: #2A7AE2;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      animation: slideInDown 1s ease forwards;
+    }
+
+    /* Paragraph */
+    p.intro {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 35px;
+      line-height: 1.8;
+      color: #d0daeb;
+      animation: slideInUp 1s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    /* Services list */
+    ul.service-list {
+      list-style: none;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 0.6s;
+      opacity: 0;
+    }
+    ul.service-list li {
+      text-align: left;
+      font-size: 1.25rem;
+      padding-left: 35px;
+      margin-bottom: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+    ul.service-list li::before {
+      content: "✔"; /* checkmark bullet */
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #2A7AE2;
+      font-weight: 900;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        gap: 16px;
+      }
+      nav a {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      p.intro {
+        font-size: 1.1rem;
+      }
+      ul.service-list li {
+        font-size: 1.1rem;
+        padding-left: 28px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideInDown {
+      0% {opacity: 0; transform: translateY(-40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInUp {
+      0% {opacity: 0; transform: translateY(40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="why-us.html" class="active">Why Us</a>
+      <a href="contact-us.html">Contact Us</a>
+    </nav>
+
+    <h1>Why Choose Us?</h1>
+
+    <p class="intro">
+      We provide very affordable car servicing at competitive prices without compromising quality.
+    </p>
+
+    <ul class="service-list">
+      <li>Cheap price services that fit your budget.</li>
+      <li>Parts are your choice — you can bring them, or we can supply good quality parts for you.</li>
+      <li>Transparent pricing with no hidden fees.</li>
+      <li>Service at our workshop or conveniently at your home.</li>
+      <li>Flexible scheduling to suit your needs.</li>
+      <li>Focused on delivering reliable and friendly service.</li>
+      <li>We’re up to 50% cheaper than other places, helping you save both time and money.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
