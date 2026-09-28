@@ -270,8 +270,7 @@
     <a href="index.html">Home</a>
     <a href="repairs.html">Repairs</a>
     <a href="why-us.html">Why Us</a>
-       <a href="contact-us.html" class="active"
-       aria-current="page">Contact Us</a>
+    <a href="contact-us.html" class="active" aria-current="page">Contact Us</a>
   </nav>
 
   <!-- Page Header -->
@@ -351,15 +350,16 @@
           </div>
 
           <div class="form-group">
-  <label for="vehicle">Make, Model, Year</label>
-  <input
-    type="text"
-    id="vehicle"
-    name="vehicle"
-    placeholder="e.g. Toyota Corolla 2016"
-    autocomplete="off"
-  />
-</div>
+            <label for="vehicle">Make, Model, Year</label>
+            <input
+              type="text"
+              id="vehicle"
+              name="vehicle"
+              placeholder="e.g. Toyota Corolla 2016"
+              autocomplete="off"
+            />
+          </div>
+
           <div class="form-group">
             <label for="phone">Phone Number</label>
             <input
@@ -415,30 +415,39 @@
   </footer>
 
   <script>
-    const contactForm = document.getElementById("contactForm");
+ const contactForm = document.getElementById("contactForm");
 
-    contactForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-      // Collect form input values
-      const name = encodeURIComponent(contactForm.name.value.trim());
-      const email = encodeURIComponent(contactForm.email.value.trim());
-      const phone = encodeURIComponent(contactForm.phone.value.trim());
-      const subject = encodeURIComponent(contactForm.subject.value.trim());
-      const message = encodeURIComponent(contactForm.message.value.trim());
+  const name = encodeURIComponent(contactForm.name.value.trim());
+  const vehicle = encodeURIComponent(contactForm.vehicle.value.trim());
+  const phone = encodeURIComponent(contactForm.phone.value.trim());
+  const subject = encodeURIComponent(contactForm.subject.value.trim());
+  const message = encodeURIComponent(contactForm.message.value.trim());
 
-      // Your WhatsApp number here (country code, no plus sign)
-      const yourWhatsAppNumber = "447404559912"; // Replace with your actual number!
+  const yourWhatsAppNumber = "44740455912"; // Your WhatsApp number
 
-      // Compose WhatsApp message text
-      const fullMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ASubject: ${subject}%0AMessage: ${message}`;
+  let fullMessage = `Name: ${name}%0A`;
+  if (vehicle) {
+    fullMessage += `Vehicle: ${vehicle}%0A`;
+  }
+  if (phone) {
+    fullMessage += `Phone: ${phone}%0A`;
+  }
+  fullMessage += `Subject: ${subject}%0AMessage: ${message}`;
 
-      // WhatsApp URL with pre-filled message
-      const whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${fullMessage}`;
+  const whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${fullMessage}`;
 
-      // Open WhatsApp chat in new tab/window
-      window.open(whatsappUrl, "_blank");
-    });
+  // Open WhatsApp in new tab/window
+  const newWindow = window.open(whatsappUrl, "_blank");
+
+  // Fallback if popup blocked (open in same tab)
+  if (!newWindow) {
+    window.location.href = whatsappUrl;
+  }
+});
+
   </script>
 
 </body>
