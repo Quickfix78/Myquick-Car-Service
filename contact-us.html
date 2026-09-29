@@ -31,19 +31,30 @@
       gap: 10px;
     }
 
+    /* All nav links styled as bright blue buttons permanently */
     nav a {
-      color: #ffffff;
+      background-color: #2a7ae2 !important;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
       text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: 0.3s;
+      transition: none;
+      box-shadow: 0 6px 18px rgba(42, 122, 226, 0.6);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
     }
 
     nav a:hover,
-    nav a.active {
-      background: #2a7ae2;
+    nav a:focus {
+      background-color: #2a7ae2 !important; /* same blue on hover/focus */
+      color: white !important;
+      box-shadow: 0 8px 22px rgba(42, 122, 226, 0.9);
+      outline: none;
     }
 
     /* Page Header */
@@ -191,21 +202,29 @@
       min-height: 140px;
     }
 
+    /* Submit button style */
     .submit-btn {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 7px;
-      background: #2a7ae2;
+      display: inline-block;
+      background-color: #2a7ae2;
       color: white;
-      font-size: 16px;
       font-weight: 700;
+      font-size: 1.3rem;
+      padding: 18px 52px;
+      border-radius: 35px;
+      border: none;
       cursor: pointer;
-      transition: background 0.3s;
+      box-shadow: 0 8px 22px rgba(42, 122, 226, 0.65);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      user-select: none;
+      margin-top: 20px;
     }
-
-    .submit-btn:hover {
-      background: #195bb5;
+    .submit-btn:hover,
+    .submit-btn:focus {
+      background-color: #195bb5;
+      box-shadow: 0 10px 28px rgba(25, 91, 181, 0.9);
+      transform: scale(1.05);
+      outline: none;
     }
 
     .form-note {
@@ -271,6 +290,9 @@
     <a href="repairs.html">Repairs</a>
     <a href="why-us.html">Why Us</a>
     <a href="contact-us.html" class="active" aria-current="page">Contact Us</a>
+    <a href="https://wa.me/44740455912" target="_blank" rel="noopener" class="btn-whatsapp">
+      📱 WhatsApp Us
+    </a>
   </nav>
 
   <!-- Page Header -->
@@ -415,39 +437,38 @@
   </footer>
 
   <script>
- const contactForm = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  const name = encodeURIComponent(contactForm.name.value.trim());
-  const vehicle = encodeURIComponent(contactForm.vehicle.value.trim());
-  const phone = encodeURIComponent(contactForm.phone.value.trim());
-  const subject = encodeURIComponent(contactForm.subject.value.trim());
-  const message = encodeURIComponent(contactForm.message.value.trim());
+      const name = encodeURIComponent(contactForm.name.value.trim());
+      const vehicle = encodeURIComponent(contactForm.vehicle.value.trim());
+      const phone = encodeURIComponent(contactForm.phone.value.trim());
+      const subject = encodeURIComponent(contactForm.subject.value.trim());
+      const message = encodeURIComponent(contactForm.message.value.trim());
 
-  const yourWhatsAppNumber = "447404559912"; // Your WhatsApp number
+      const yourWhatsAppNumber = "44740455912"; // Your WhatsApp number
 
-  let fullMessage = `Name: ${name}%0A`;
-  if (vehicle) {
-    fullMessage += `Vehicle: ${vehicle}%0A`;
-  }
-  if (phone) {
-    fullMessage += `Phone: ${phone}%0A`;
-  }
-  fullMessage += `Subject: ${subject}%0AMessage: ${message}`;
+      let fullMessage = `Name: ${name}%0A`;
+      if (vehicle) {
+        fullMessage += `Vehicle: ${vehicle}%0A`;
+      }
+      if (phone) {
+        fullMessage += `Phone: ${phone}%0A`;
+      }
+      fullMessage += `Subject: ${subject}%0AMessage: ${message}`;
 
-  const whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${fullMessage}`;
+      const whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${fullMessage}`;
 
-  // Open WhatsApp in new tab/window
-  const newWindow = window.open(whatsappUrl, "_blank");
+      // Open WhatsApp in new tab/window
+      const newWindow = window.open(whatsappUrl, "_blank");
 
-  // Fallback if popup blocked (open in same tab)
-  if (!newWindow) {
-    window.location.href = whatsappUrl;
-  }
-});
-
+      // Fallback if popup blocked (open in same tab)
+      if (!newWindow) {
+        window.location.href = whatsappUrl;
+      }
+    });
   </script>
 
 </body>
